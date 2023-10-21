@@ -1,0 +1,203 @@
+server.js 
+let express = require('express');
+let app = express();              
+var cors = require('cors')   
+let cookieparser = require('cookie-parser');    
+let mongoose = require('mongoose');      
+let port = process.env.PORT || 8080;            
+app.configure(function() {
+    app.use(express.logger('dev'));                
+    app.use(express.methodOverride());
+});
+
+
+const mongoAtlasUri = 'mongodb+srv://DANIELDKMC2:Number56@cluster0.w2glg4c.mongodb.net/?retryWrites=true&w=majority';
+try {
+    mongoose.connect(mongoAtlasUri, {useNewUrlParser: true, useUnifiedTopology: true},() =>
+    console.log("connected"));
+}
+catch (error) {
+    console.log("could not connect");
+}
+const dbConnection = mongoose.connection;
+dbConnection.on("error",(err) => console.log(`Connection error ${err}`));
+dbConnection.once("open", () => console.log("Connected to Mongo DB!"));//conecion a mongo
+
+var bodyParser = require('body-parser');
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(cors());
+require('./routes.js')(app);  
+
+app.listen(port);  
+console.log("APP por el puerto " + port);
+
+Routes.js
+let cookieParser = require('cookie-parser'); 
+const mongoose = require('mongoose');
+var ControllerPublicaciones = require('./Controllers/ControllerPublicaciones.js')
+var ControllerPersona = require('./Controllers/ControllerPersona.js')
+var ControllerComentarios = require('./Controllers/ControllerComentarios.js')
+module.exports = function(app){
+    app.use(cookieParser());
+    
+    app.put('/api/agregarP',ControllerPublicaciones.Guardar);
+    app.post('/api/modificarP',ControllerPublicaciones.Modificar);
+    app.delete('/api/eliminardelabase', ControllerPublicaciones.Eliminar);
+    app.post('/api/peliculaporid', ControllerPublicaciones.Seleccionarporid);
+    app.get('/api/listar', ControllerPublicaciones.Listar);
+    app.get('/api/ListarPorID', ControllerPublicaciones.ListarPorID);
+    app.get('/api/ListarTodo', ControllerPublicaciones.ListarTodo);
+
+    app.put('/api/agregarC',ControllerComentarios.Guardar);
+    app.post('/api/modificarC',ControllerComentarios.Modificar);
+    app.delete('/api/eliminardelabaseC', ControllerComentarios.Eliminar);
+    app.post('/api/peliculaporidC', ControllerComentarios.Seleccionarporid);
+    app.get('/api/listarC', ControllerComentarios.Listar);
+   
+    app.post('/api/Login',ControllerPersona.Login);
+    app.put('/api/agregarPersona',ControllerPersona.GuardarP);
+    app.post('/api/modificarPersona',ControllerPersona.ModificarP);
+    app.delete('/api/eliminardelabaseP', ControllerPersona.EliminarP);
+    app.get('/api/usuario', ControllerPersona.obtenerUsuario);
+    app.get('/api/listarP', ControllerPersona.ListarP);
+
+
+
+
+//Login y registro
+app.get('/nuevaP', function(req,res)
+{
+    res.sendfile('front-end/Login&Registro/AgregarPersona.html');
+});
+
+app.get('/Login', function(req,res)
+{
+    res.sendfile('front-end/Login&Registro/Login.html');
+});
+
+app.get('/persona.js', function(req,res)
+{
+    res.sendfile('front-end/Login&Registro/persona.js');
+});
+
+<-- Resto de mis rutas -->
+
+};
+
+ControllerPublicaciones.js
+
+var Item = require('../db/PUBLICACIONESDB');
+
+exports.Guardar = function(req,res){ //funcion de guardar los datos, 
+    const userId = req.cookies.user_id;
+    Item.create({
+        NOMBRE: req.body.NOMBRE, 
+        INTERES: req.body.INTERES, 
+        SABE: req.body.SABE, 
+        NUMERO: req.body.NUMERO, 
+        FOTO: req.body.FOTO,
+        FECHAACTUAL: req.body.FECHAACTUAL,
+        userId: userId
+        },
+        function(err,item){
+            if(err){
+                res.send(err); 
+            }else{
+                Item.find(function(err,item){
+                    if(err){
+                        res.send(err); 
+                    }else{
+                        res.json(item); 
+                    }
+                });}});
+}
+
+<-- Resto del controller -->
+
+peticiones del front-end publicaciones.js
+
+
+class publicacionesdb{ 
+    constructor(_id,
+        NOMBRE,
+        INTERES,
+        SABE,
+        NUMERO,
+        FOTO,
+        FECHAACTUAL,
+        userId
+
+    ){
+    this.id = _id;
+    this.NOMBRE=NOMBRE;
+    this.INTERES=INTERES;
+    this.SABE=SABE;
+    this.NUMERO=NUMERO;
+    this.FOTO=FOTO;
+    this.FECHAACTUAL=FECHAACTUAL;
+    this.userId=userId;
+    }
+
+    Guardar(){  //Llama la api para guardar los datos
+        var objetoaenviar = this;
+        return new Promise(function(resolve, reject){
+            try{
+                var xhr = new XMLHttpRequest();
+                xhr.open("PUT", "http://localhost:8080/api/agregarP");
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.onload = function(){
+                    if(xhr.status === 200) {
+                        resolve(JSON.parse(xhr.responseText));
+                    }
+                    else{
+                        reject(xhr);
+                    }
+                };
+                xhr.send(JSON.stringify(objetoaenviar));
+            }
+            catch(err){
+                reject(err.message);
+            }
+        });
+    }
+
+
+<-- Resto del codigo -->
+
+index.html y el como se hacen las peticiones
+
+ 
+  function Guardar() {
+  var FECHAACTUAL = new Date(); // Obtener la fecha y hora actual
+
+  var tics_instanciada = new publicacionesdb(
+    0,
+    nombreUsuario,
+    document.getElementById("INTERES").value,
+    document.getElementById("SABE").value,
+    document.getElementById("NUMERO").value,
+    imagenbase64,
+    FECHAACTUAL // Agregar la fecha actual a la publicación
+  );
+
+  tics_instanciada.Guardar()
+    .then(function (response) {
+      console.log("Success!", response);
+      swal({
+                      icon: 'success',
+                      text: 'Publicacion exitosa'
+                    });
+      cargarTabla();
+    })
+    .catch(function (error) {
+      console.error("Failed", error);
+      swal({
+                      icon: 'error',
+                      text: 'Error al publicar'
+                    });
+      
+    });
+  }
+
+

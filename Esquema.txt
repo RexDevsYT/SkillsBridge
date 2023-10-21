@@ -1,0 +1,43 @@
+/BrigdeSkill2023
+|-- /botsito
+|   |-- app.py
+|   |-- bot.json
+|   |-- main.py
+|   |-- random_responses.py  
+|-- /Controllers
+|   |-- ControllerComentarios.js
+|   |-- ControllerPersona.js
+|   |-- ControllerPublicaciones.js
+|-- /db   
+|   |-- blogdb.js
+|   |-- personaP.js
+|   |-- PUBLICACIONESDB.js   
+|-- /front-end                
+|   |-- /Blog  
+|   |   |-- Blog.html
+|   |   |-- Comentarios.js         
+|   |-- /Buscador&Publicaciones 
+|   |   |-- MainPublicaciones.js       
+|   |-- /chatbot
+|   |   |-- Chatbot.html           
+|   |-- /CSS #CSS de las paginas      
+|   |-- /Extenciones
+|   |   |-- Bootstrap.css
+|   |   |-- Bootstrap.js
+|   |   |-- Jquery.js          
+|   |-- /Home 
+|   |   |-- Index.html
+|   |   |-- publicaciones.js
+|   |   |-- Usuario.html               
+|   |-- /Login&Registro 
+|   |   |-- AgregarPersona.html
+|   |   |-- persona.js
+|   |   |-- Login.html            
+|-- /imagenes 
+|-- /myenv          
+|-- /node_modules                   
+|-- package.json           
+|-- package-lock.json       
+|-- routes.js             
+|-- server.js                   
+         

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      .example::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .example {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+
+    <link rel="stylesheet" href="BootstrapCSS">
+    <link rel="stylesheet" href="MCSS">
+    <link rel="stylesheet" href="FCSS">
+    <link rel="stylesheet" href="CCSS">
+    <link rel="stylesheet" href="BotCSS">
+
+
+    <script src="BotJS"></script>
+    <script src="Jquery"></script>
+    <script src="BootstrapJS"></script>
+    <script src="publicaciones.js"></script>
+    <script src="persona.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="icon" type="image/png" href="/Logo2"> 
+    <title>Explorar</title>
+</head>
+<header>
+<body onload="obtenerDatosUsuario()" class="example">
+  <div id="loadingOverlay">
+    <div class="text-center">
+      <div class="spinner-border text-danger" role="status" style="width: 5rem;
+      height: 5rem; margin-top: 200%">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+  
+  <div id="contenido" class="hidden">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    <span id="logo"> <img src="/Logo2" width="55px"
+      height="60px" alt=""> 
+ </span>
+   
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <div id="profile-card" class="profile-card">
+            <img class="perfilImagen" id="perfilImagen" src="/Perfil" alt="Imagen de perfil">
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+</header>
+
+<nav class="main-menu">
+  <div>
+     <a class="logo" href="http://startific.com">
+     </a> 
+   </div> 
+ <div class="settings"></div>
+ <div class="scrollbar" id="style-1">
+       
+ <ul>
+   
+ <li>                                   
+  <a href="/index">
+  <i class="fa fa-home fa-lg"></i>
+  <span class="nav-text">Home</span>
+  </a>
+  </li>   
+     
+  <li>                                 
+   <a href="/Usuario">
+     <i class="fa fa-user fa-lg"></i>
+     <span class="nav-text">Perfil</span>
+     </a>
+     </li>    
+  
+      
+  <ul class="logout">
+   <li>
+                      <a href="/Blog">
+                            <i class="fa fa-lightbulb-o fa-lg"></i>
+                           <span class="nav-text">
+                               Blog
+                           </span>
+                           
+                       </a>
+   </li>  
+   </ul>
+  
+   
+   <li>                                 
+    <a href="chat">
+    <i class="fa fa-envelope-o fa-lg"></i>
+    <span class="nav-text">Chats</span>
+    </a>
+    </li>   
+      
+ 
+    <li >
+      <a href="MainPublicaciones">
+      <i class="fa fa-search"></i>
+      <span class="nav-text">Explorar</span>
+      </a>
+      </li>
+     
+        
+
+    
+ </li>
+ <li class="darkerlishadow">
+ <a href="noticias">
+ <i class="fa fa-clock-o fa-lg"></i>
+ <span class="nav-text">Noticias</span>
+ </a>
+ </li>
+  
+          
+ <li class="darkerli">
+  <a href="guia">
+  <i class="fa fa-search"></i>
+  <span class="nav-text">Guía de uso</span>
+  </a>
+  </li>
+
+ <li class="darkerli">
+ <a href="Historia">
+ <i class="fa fa-desktop fa-lg"></i>
+ <span class="nav-text">Historia del proyecto</span>
+ </a>
+ </li>
+   
+
+   
+ <li class="darkerli">
+ <a href="intercambios">
+ <i class="fa fa-refresh"></i>
+  <span class="nav-text">Acerca de los intercambios</span>
+ </a>
+ </li>
+ <li class="darkerli">
+   <a href="help  ">
+   <i class="fa fa-question-circle fa-lg"></i>
+    <span class="nav-text">Ayuda</span>
+   </a>
+   </li>  
+            </nav>
+            <h1 style="text-align: center;">¡Bienvenido al explorador de habilidades!</h1>
+            <div style="text-align: center; margin-top: 20px;">
+              <form id="searchForm">
+                <div class="search-container">
+                  <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                  <input type="text" id="searchInput" placeholder="Buscar...">
+              </div>
+              <!-- <button onclick="searchCards()"><i class="fa-solid fa-magnifying-glass"></i></button> -->
+                </form>
+          </div>
+
+         <div id="fondoCards">
+          <div class="carousel">
+            <ul class="carousel__list" id="cuaerpodelatabladeoperaciones">
+              <div class="fondoCard">	
+                <div class="card-container" id="cuaerpodelatabladeoperaciones"></div>
+         </div>
+       </div>
+       </div>
+            </ul>
+            <div class="carousel__nav">
+      
+              <button class="button-28" id="prevBtn"><i class="fa-sharp fa-solid fa-arrow-left"></i> Anterior</button>
+
+                <button class="button-28" id="nextBtn">Siguiente <i class="fa-solid fa-arrow-right"></i></button>
+       
+            </div>
+        </div>
+
+
+ </ul>
+         </nav>
+         <div id="toggle-chat-btn" class="chat-toggle-button">
+          <img src="/SkillBotLogo" alt="Open Chat">
+        </div>
+        
+        
+        <div class="content chat-container">  
+          <div class="close-chat-btn">X</div>
+        <div class="content">
+        <div id="chat-contents">
+        </div>
+        <div class="chat-box">
+          <input type="text" id="chat-message-value" autocomplete="off" placeholder="Type a message">
+          <button id="submit-chat">
+            <svg width="15" height="20" viewBox="0 0 30 21">
+              <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+            </svg>
+          </button>
+        </div>
+        </div>
+        </div>
+        </body>
+
+
+          <footer class="footer-basic">
+              <div class="social">
+                  <a href="#"><i class="icon ion-social-instagram"></i></a>
+                  <a href="#"><i class="icon ion-social-facebook"></i></a>      
+                  <a href="#"><i class="icon ion-ios-telephone"></i></a>
+                  <a href="#"><i class="icon ion-ios-email"></i></a>
+              </div>
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href="/Servicios">Servicios</a></li>
+                  <li class="list-inline-item"><a href="/Acerca_de">Acerca de</a></li>
+                  <li class="list-inline-item"><a href="/Terminos">Términos y condiciones</a></li>
+                  <li class="list-inline-item"><a href="/Politicas">Políticas de privacidad</a></li>
+              </ul>
+              <p class="copyright">BridgeSkill © 2023</p>
+              <link rel="stylesheet" href="footer.css">
+          </footer></html></div>
+
+<script type:"text-javascript">
+
+var overlay = document.getElementById("loadingOverlay");
+var contenido = document.getElementById("contenido");
+
+document.addEventListener('DOMContentLoaded', function() {
+    const carouselList = document.querySelector('.carousel__list');
+    const nextButton = document.querySelector('.carousel__nav button.next');
+    const prevButton = document.querySelector('.carousel__nav button.prev');
+    let position = 0;
+  
+    nextButton.addEventListener('click', function() {
+      if (position > -2) { // Asegurarse de no desplazarse más allá del final
+        position--;
+        updateCarousel();
+      }
+    });
+  
+    prevButton.addEventListener('click', function() {
+      if (position < 0) { // Asegurarse de no desplazarse más allá del inicio
+        position++;
+        updateCarousel();
+      }
+    });
+  
+    function updateCarousel() {
+      const offset = position * 240; // 220px de ancho + 20px de margen
+      carouselList.style.transform = `translateX(${offset}px)`;
+    }
+  })
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Agregar la clase 'loading' al body para ocultar la barra de desplazamiento
+  document.body.classList.add("loading");
+
+}); 
+
+function obtenerDatosUsuario() {
+    const tics_instanciada = new personaP();
+    tics_instanciada.obtenerUsuario().then(function(response) {
+        nombreUsuario = response.NOMBRE;
+
+        // Actualizar la imagen de perfil
+        const perfilImagen = document.getElementById('perfilImagen');
+        perfilImagen.src = response.FOTO;
+
+        // Actualizar las burbujas de chat con la nueva imagen de perfil
+        const chatBubbles = document.querySelectorAll('.chat-bubble .image.user');
+        chatBubbles.forEach(bubble => {
+            bubble.style.content = `url(${response.FOTO})`;
+        });
+
+    }).catch(function(error) {
+        console.error('Error al obtener los datos del usuario:', error);
+    });
+}
+
+const state = {};
+const carouselList = document.querySelector('.carousel__list');
+const carouselItems = document.querySelectorAll('.carousel__item');
+const elems = Array.from(carouselItems);
+
+carouselList.addEventListener('click', function (event) {
+  var newActive = event.target;
+  var isItem = newActive.closest('.carousel__item');
+
+  if (!isItem || newActive.classList.contains('carousel__item_active')) {
+    return;
+  }
+
+
+  
+  update(newActive);
+});
+
+const update = function(newActive) {
+  const newActivePos = newActive.dataset.pos;
+
+  const current = elems.find((elem) => elem.dataset.pos == 0);
+  const prev = elems.find((elem) => elem.dataset.pos == -1);
+  const next = elems.find((elem) => elem.dataset.pos == 1);
+  const first = elems.find((elem) => elem.dataset.pos == -2);
+  const last = elems.find((elem) => elem.dataset.pos == 2);
+  
+  current.classList.remove('carousel__item_active');
+  
+  [current, prev, next, first, last].forEach(item => {
+    var itemPos = item.dataset.pos;
+
+    item.dataset.pos = getPos(itemPos, newActivePos)
+  });
+};
+
+const getPos = function (current, active) {
+  const diff = current - active;
+
+  if (Math.abs(current - active) > 2) {
+    return -current;
+  }
+
+  return diff;
+};
+
+var tics_instanciada = new publicacionesdb(); 
+tics_instanciada.ListarTodo()
+  .then(function (response) {
+    response.sort(function (a, b) {
+      return new Date(b.FECHAACTUAL) - new Date(a.FECHAACTUAL);
+    });
+
+    var cardContent = ""; 
+    var maxPublicaciones = 2000;
+    var ultimasPublicaciones = response.slice(0, Math.min(maxPublicaciones, response.length));
+
+    for (var elemento of ultimasPublicaciones) {
+      cardContent +=
+    '<article class="card">' +
+    '<img class="card__background" src="' +
+    elemento.FOTO +
+    '" alt="" width="2000" height="2200"/>' +
+    '<div class="card__content | flow">' +
+    '<div class="card__content--container | flow">' +
+    '<h2 class="card__title">' +
+    elemento.NOMBRE +
+    '</h2>' +
+    '<p class="card__description">' +
+    "Interes: " +
+    elemento.INTERES +
+    "<br>" +
+    "Sabe: " +
+    elemento.SABE +
+    '</p>' +
+    '</div>' +
+    '<div class="button-container">' +
+    '<a href="/UsuarioPublico/' + elemento.userId + '" class="card__button">Ver Perfil</a>' +
+    '<button class="card__button" onclick="DireccionSoporte()"><i class="fa-solid fa-circle-info"></i></button>' +
+    // Botón del corazón
+    '<div class="like-contentuwu">' +
+    '<button class="btn-secondaryuwu like-review">' +
+    '<i class="fa fa-heart" aria-hidden="true"></i>' +
+    '</button>' +
+    '</div>' +
+    // Fin del botón del corazón
+    '</div>' +
+    '</div>' +
+    '</article>';
+    }
+
+
+        $(function(){
+    $(document).on('click', '.like-review', function(e) {
+        $(this).addClass('liked');
+    });
+});
+
+    document.getElementById("cuaerpodelatabladeoperaciones").innerHTML = cardContent;
+    overlay.style.display = "none";
+    document.body.style.overflow = 'auto';
+    contenido.classList.remove("hidden"); 
+  })
+  .catch(function (error) {
+    console.error("Failed", error);
+    alert("Error " + error);
+  });
+
+function DireccionSoporte() {
+  window.location.href = "/soporte";
+}
+
+let currentIndex = 0;
+
+document.getElementById("prevBtn").addEventListener("click", function() {
+  moveSlide(-1);
+});
+
+document.getElementById("nextBtn").addEventListener("click", function() {
+  moveSlide(1);
+});
+
+function moveSlide(direction) {
+  const carouselList = document.querySelector('.carousel__list');
+  const cards = carouselList.children.length;
+
+  currentIndex += direction;
+
+  if (currentIndex < 0) {
+      currentIndex = cards - 1;
+  } else if (currentIndex > cards - 1) {
+      currentIndex = 0;
+  }
+
+  const offset = currentIndex * 320 * -1;
+  carouselList.style.transform = `translateX(${offset}px)`;
+}
+function searchCards() {
+  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+  
+  const cards = document.querySelectorAll('.card');
+  document.getElementById('searchInput').addEventListener('input', function() {
+    if (this.value.trim() === "") {
+        searchCards();
+    }
+    
+});
+
+
+  cards.forEach(card => {
+    // Suponiendo que el término de búsqueda se puede encontrar en el título, descripción, o número. Ajustar según tus necesidades.
+    const title = card.querySelector('.card__title').innerText.toLowerCase();
+    const description = card.querySelector('.card__description').innerText.toLowerCase();
+    const number = card.querySelector('.card__button').innerText.toLowerCase();
+    
+    if (title.includes(searchTerm) || description.includes(searchTerm) || number.includes(searchTerm)) {
+      card.style.display = ''; // muestra la tarjeta si coincide con la búsqueda
+    } else {
+      card.style.display = 'none'; // oculta la tarjeta si no coincide
+    }
+  });
+}
+document.getElementById('searchForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Esto previene que la página se recargue
+    searchCards();
+});
+</script>
+<style>
+  .card {
+    margin-left: 50%;
+    /* margin-left: 5550px; */
+    margin-top: 60px;
+    margin: 20px;
+    color: white;
+  
+}
+.card-container{
+  position: relative;
+    z-index: 1;
+    margin-left: 50%;
+    margin-right: 4%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5rem;
+}
+
+  .carousel {
+ 
+  overflow: hidden;
+  width: 100%;  
+  max-width: 1100px; /* Ancho total de 3 publicaciones (220px cada una) + 2 márgenes (20px cada uno) */
+  display: flex;
+  justify-content: center;
+  margin: 0 auto; /* Alinea el carrusel en el centro */
+}
+
+ /*me gustaria declararle mi amor pero solo se declarar variable*/
+
+.carousel__list {
+       margin-left: 60%; 
+    display: flex;
+    transition: all 0.3s;
+  
+}
+.carousel__item {
+  min-width: 220px; 
+  margin-right: 20px;
+  list-style-type: none;
+  transition: transform 0.3s;
+}
+
+.carousel__item[data-pos="0"] {
+  margin-left: 500px;
+  min-width: 250px; 
+}
+
+.carousel__nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.carousel__nav button {
+  margin: 0 10px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  width: 135px;
+}
+
+.carousel__nav button.active {
+  background-color: #333;
+  color: white;
+}
+#searchForm {
+    width: 300px;
+    margin: 20px 75px;  /* Cambiado de margin: 20px auto; */
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    padding: 10px;
+    border-radius: 50px;
+    background-color: white;
+}
+
+button{
+    background-color:#ce1d61;
+    margin: 7px;
+    width: 100px;
+    height: 50px;
+    color: white;
+    border-radius: 10px;
+    margin-left: 38%;
+    font-size: 20px;
+}
+#searchForm input {
+    width: 80%;
+    padding: 8px;
+    border: none;
+    border-radius: 3px 0 0 3px;
+    outline: none;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.search-container {
+    position: relative;
+    width: 80%; 
+}
+
+#searchInput {
+    padding-left: 30px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #ce1d61;
+}
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+</style>
+</html>
+
+   <!-- //.carousel {
+    overflow: hidden;
+    width: 100%;
+    max-width: 690px; /* Ancho total de 3 publicaciones (220px cada una) + 2 márgenes (20px cada uno) */
+    display: flex;
+    justify-content: center;
+  }
+
+
+  //document.addEventListener('DOMContentLoaded', function() {
+    const carouselList = document.querySelector('.carousel__list');
+    const nextButton = document.querySelector('.carousel__nav button.next');
+    const prevButton = document.querySelector('.carousel__nav button.prev');
+    let position = 0;
+  
+    nextButton.addEventListener('click', function() {
+      if (position > -2) { // Asegurarse de no desplazarse más allá del final
+        position--;
+        updateCarousel();
+      }
+    });
+  
+    prevButton.addEventListener('click', function() {
+      if (position < 0) { // Asegurarse de no desplazarse más allá del inicio
+        position++;
+        updateCarousel();
+      }
+    });
+  
+    function updateCarousel() {
+      const offset = position * 240; // 220px de ancho + 20px de margen
+      carouselList.style.transform = `translateX(${offset}px)`;
+    }
+  })
+
+  //<div class="carousel__nav">
+    <button class="prev">Anterior</button>
+    <button class="next">Siguiente</button>
+  </div> -->

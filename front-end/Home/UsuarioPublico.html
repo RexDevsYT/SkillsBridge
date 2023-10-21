@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      .example::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .example {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="/BootstrapCSS">
+    <link rel="stylesheet" href="/MCSS">
+    <link rel="stylesheet" href="/FCSS">
+    <link rel="stylesheet" href="/CCSS2">
+    <link rel="stylesheet" href="/BotCSS">
+
+    <script src="/BotJS"></script>
+    <script src="/BootstrapJS"></script>
+    <script src="/publicaciones.js"></script>
+    <script src="/persona.js"></script>
+    <script src="/Jquery"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="icon" type="image/png" href="/Logo2"> 
+    <title>Perfil</title>
+</head>
+
+<body onload="cargarTabla()" class="example">
+  <div id="loadingOverlay">
+    <div class="text-center">
+      <div class="spinner-border text-danger" role="status" style="width: 5rem;
+    height: 5rem; margin-top: 200%">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+  
+  <div id="contenido" class="hidden">
+  <nav class="main-menu">
+    <span id="logo"> <img src="/Logo2" width="58px"
+      height="60px" alt=""> 
+ </span>
+
+ <div class="scrollbar" id="style-1">
+       
+ <ul>
+   
+  
+  <div>
+    <a class="logo" href="/Logo">
+    </a> 
+  </div> 
+<div class="settings"></div>
+<div class="scrollbar" id="style-1">
+      
+
+<li>                                   
+<a href="/index">
+<i class="fa fa-home fa-lg"></i>
+<span class="nav-text">Home</span>
+</a>
+</li>   
+     
+<li>                                 
+  <a href="/Usuario">
+    <i class="fa fa-user fa-lg"></i>
+    <span class="nav-text">Perfil</span>
+    </a>
+    </li>    
+ 
+     
+ <ul class="logout">
+  <li>
+                     <a href="/Blog">
+                           <i class="fa fa-lightbulb-o fa-lg"></i>
+                          <span class="nav-text">
+                              Blog 
+                          </span>
+                          
+                      </a>
+  </li>  
+  </ul>
+ 
+  
+  <li>                                 
+    <a href="/chat">
+    <i class="fa fa-envelope-o fa-lg"></i>
+    <span class="nav-text">Chats</span>
+    </a>
+    </li>   
+      
+    <li >
+      <a href="/MainPublicaciones">
+      <i class="fa fa-search"></i>
+      <span class="nav-text">Explorar</span>
+      </a>
+      </li>
+     
+        
+   
+</li>
+<li class="darkerlishadow">
+<a href="/noticias">
+<i class="fa fa-clock-o fa-lg"></i>
+<span class="nav-text">Noticias</span>
+</a>
+</li>
+ 
+         
+<li class="darkerli">
+ <a href="/guia">
+ <i class="fa fa-search"></i>
+ <span class="nav-text">Guía de uso</span>
+ </a>
+ </li>
+
+<li class="darkerli">
+<a href="/Historia">
+<i class="fa fa-desktop fa-lg"></i>
+<span class="nav-text">Historia del proyecto</span>
+</a>
+</li>
+  
+
+<li class="darkerli">
+<a href="/intercambios">
+<i class="fa fa-refresh"></i>
+ <span class="nav-text">Acerca de los intercambios</span>
+</a>
+</li>
+<li class="darkerli">
+  <a href="/help">
+  <i class="fa fa-question-circle fa-lg"></i>
+   <span class="nav-text">Ayuda</span>
+  </a>
+  </li>  
+
+
+  
+         </nav>
+<section>
+    <div class="container py-5">
+  
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img src="/Perfil" alt="Imagen de perfil" id="perfilImagen"
+                class="rounded-circle img-fluid" style="height: 150px; width: 150px;">
+              <h5 class="my-3" id="nombreUsuario"></h5>
+              <button type="button" class="btn btn-primary" onclick="DireccionSoporte()"><i class="fa-solid fa-circle-info"></i></button>
+              <button type="button" class="btn btn-outline-primary ms-1">Mensaje</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Nombre completo</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0" id="nombreUsuario2"> </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0" id="emailUsuario"> </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0"></p>Género</p>
+                </div>
+                <div class="col-sm-3">
+                  <p class="text-muted mb-0" id="generoUsuario"></p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Fecha de nacimiento</p>
+                </div>
+                <div class="col-sm-3">
+                  <p class="text-muted mb-0" id="fechaUsuario"> </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Número de teléfono</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">8965-2134</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </section>
+  <h1 class="titulo">Publicaciones</h1>
+  <div class="fondoCard">	
+    <div class="card1-container" id="cuaerpodelatabladeoperaciones">     
+    </div>
+</div>
+<div id="toggle-chat-btn" class="chat-toggle-button">
+  <img src="/SkillBotLogo" alt="Open Chat">
+</div>
+
+
+<div class="content chat-container">  
+  <div class="close-chat-btn">X</div>
+<div class="content">
+<div id="chat-contents">
+</div>
+<div class="chat-box">
+  <input type="text" id="chat-message-value" autocomplete="off" placeholder="Type a message">
+  <button id="submit-chat">
+    <svg width="15" height="20" viewBox="0 0 30 21">
+      <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+    </svg>
+  </button>
+</div>
+</div>
+</div>
+</body>
+<footer class="footer-basic">
+              <div class="social">
+                  <a href="#"><i class="icon ion-social-instagram"></i></a>
+                  <a href="#"><i class="icon ion-social-facebook"></i></a>      
+                  <a href="#"><i class="icon ion-ios-telephone"></i></a>
+                  <a href="#"><i class="icon ion-ios-email"></i></a>
+              </div>
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href="/Servicios">Servicios</a></li>
+                  <li class="list-inline-item"><a href="/Acerca_de">Acerca de</a></li>
+                  <li class="list-inline-item"><a href="/Terminos">Términos y condiciones</a></li>
+                  <li class="list-inline-item"><a href="/Politicas">Políticas de privacidad</a></li>
+              </ul>
+              <p class="copyright">BrigdeSkill © 2023</p>
+              <link rel="stylesheet" href="/footer.css">
+          </footer></div>
+          <script type:"text-javascript">
+
+// Primero, obtén el userId desde la URL
+const userId = window.location.pathname.split("/").pop();
+
+const tics_instanciada = new personaP();
+
+tics_instanciada.obtenerUsuarioPublico(userId).then(function(response) {
+    const nombreUsuario = response.NOMBRE;
+    const apellidoUsuario = response.APELLIDO;
+    const emailUsuario = response.EMAIL;
+    const fechaUsuario = response.FECHAN;
+    const generoUsuario = response.GENERO;
+
+    // Actualizar el elemento HTML con el nombre del usuario
+    const nombreElemento2 = document.getElementById('nombreUsuario2');
+    nombreElemento2.textContent = nombreUsuario + " " + apellidoUsuario;
+
+    const nombreElemento = document.getElementById('nombreUsuario');
+    nombreElemento.textContent = nombreUsuario;
+
+    const nacimientoElemento = document.getElementById('fechaUsuario');
+    nacimientoElemento.textContent = fechaUsuario;
+
+    const generoElemento = document.getElementById('generoUsuario');
+    generoElemento.textContent = generoUsuario;
+
+    const emailElemento = document.getElementById('emailUsuario');
+    emailElemento.textContent = emailUsuario;
+
+    // Obtener el elemento de la imagen de perfil
+    const perfilImagen = document.getElementById('perfilImagen');
+    // Actualizar la URL de la imagen de perfil
+    perfilImagen.src = response.FOTO;
+
+}).catch(function(error) {
+    console.error("Hubo un error al obtener el usuario:", error);
+});
+
+
+function obtenerUsuarioIdDeURL() {
+    // Considerando una URL del tipo http://tuweb.com/perfil/12345
+    const path = window.location.pathname; // "/perfil/12345"
+    const partes = path.split('/'); // ["", "perfil", "12345"]
+    return partes[2]; // Esto retorna "12345"
+}
+
+function cargarTabla() {
+  var overlay = document.getElementById("loadingOverlay");
+    var contenido = document.getElementById("contenido");
+    const userId = obtenerUsuarioIdDeURL(); // Aquí obtienes el ID del usuario de la URL
+    console.log(userId)
+    var tics_instanciada = new publicacionesdb();
+
+    tics_instanciada.ListarPorUsuario(userId)  // Ahora pasas el ID del usuario al método
+        .then(function(response) {
+            response.sort(function(a, b) {
+                return new Date(b.FECHAACTUAL) - new Date(a.FECHAACTUAL);
+            });
+
+            var cardContent = ""; 
+            for (var elemento of response) {
+                cardContent +='<article class="card1">' +
+    '<img class="card1__background" src="' +
+    elemento.FOTO +
+    '" alt="" width="2000" height="2200"/>' +
+    '<div class="card1__content | flow">' +
+    '<div class="card1__content--container | flow">' +
+    '<h2 class="card1__title">' +
+    elemento.NOMBRE +
+    '</h2>' +
+    '<p class="card1__description">' +
+    "Interes: " +
+    elemento.INTERES +
+    "<br>" +
+    "Sabe: " +
+    elemento.SABE +
+    '</p>' +
+    '</div>' +
+    '<div class="button-container">' +
+    '<div class="like-contentuwu">' +
+    '<button class="btn-secondaryuwu like-review">' +
+    '<i class="fa fa-heart" aria-hidden="true"></i>' +
+    '</button>' +
+    '</div>' +
+    '</div>' +
+    '</div>' +
+    '</article>';
+            }
+
+            document.getElementById("cuaerpodelatabladeoperaciones").innerHTML = cardContent;
+            overlay.style.display = "none";
+      contenido.classList.remove("hidden"); 
+          })
+        .catch(function(error) {
+            console.error("Failed", error);
+            alert("Error " + error);
+        });
+}
+
+$(function(){
+    $(document).on('click', '.like-review', function(e) {
+        $(this).addClass('liked');
+    });
+});
+
+function DireccionSoporte() {
+  window.location.href = "/soporte";
+}
+
+          </script>
+
+</html>

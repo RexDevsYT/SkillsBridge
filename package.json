@@ -1,0 +1,25 @@
+{
+  "name": "BridgeSkill",
+  "version": "0.0.1",
+  "description": "Red social de intercambio de habilidades",
+  "main": "server.js",
+  "author": "Byron Chacon J",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "datatables.net-dt": "^1.13.4",
+    "express": "^3.21.2",
+    "mongoose": "~5.11.19",
+    "multer": "~0.1.6",
+    "nodemailer": "^5.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "ISC",
+  "keywords": []
+}

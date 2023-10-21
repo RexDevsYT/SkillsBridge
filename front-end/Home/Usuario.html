@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Jquery"></script>
+    <style>
+      .example::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .example {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="BootstrapCSS">
+    <link rel="stylesheet" href="MCSS">
+    <link rel="stylesheet" href="FCSS">
+    <link rel="stylesheet" href="CCSS2">
+    <link rel="stylesheet" href="BotCSS">
+
+    <script src="BotJS"></script>
+    <script src="BootstrapJS"></script>
+    <script src="publicaciones.js"></script>
+    <script src="persona.js"></script>
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="icon" type="image/png" href="/Logo2"> 
+    <title>Perfil</title>
+</head>
+
+
+
+
+
+
+<!-- Menú vertical con iconos de fondo -->
+<div class="menupc-container">
+  <nav class="menupc">
+      <!-- Primer icono -->
+      <a href="/index" class="menupc__item">
+          <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBB%0D%0AZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9u%0D%0AOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBT%0D%0AVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzEx%0D%0ALmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAv%0D%0Ac3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5%0D%0APSIwcHgiIHdpZHRoPSIzMHB4Ig0KCSBoZWlnaHQ9IjMwcHgiIHZpZXdCb3g9IjAgMCAzMCAzMCIg%0D%0AZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzAgMzAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0K%0D%0APGcgaWQ9IkNhcGFfMSIgZGlzcGxheT0ibm9uZSI+DQoJPGcgZGlzcGxheT0iaW5saW5lIj4NCgkJ%0D%0APGNpcmNsZSBmaWxsPSIjRkZGRkZGIiBjeD0iMTUiIGN5PSIxNSIgcj0iMi45MTciLz4NCgkJPHBh%0D%0AdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTAsMHYzMGgzMFYwSDB6IE0yMS4yNSwxNWMwLDAuMjc1LTAu%0D%0AMDI1LDAuNTQ2LTAuMDU5LDAuODEzbDEuNzU5LDEuMzc5YzAuMTU4LDAuMTMsMC4yMDQsMC4zNTQs%0D%0AMC4xLDAuNTMzDQoJCQlsLTEuNjY2LDIuODg5Yy0wLjEwNCwwLjE3OS0wLjMyMSwwLjI0OS0wLjUw%0D%0AOSwwLjE3OUwxOC44LDE5Ljk1NGMtMC40MjksMC4zMzMtMC44OTksMC42MDgtMS40MDgsMC44Mmwt%0D%0AMC4zMTMsMi4yMDkNCgkJCWMtMC4wMzMsMC4xOTUtMC4yMDQsMC4zNS0wLjQxMywwLjM1aC0zLjMz%0D%0AM2MtMC4yMDgsMC0wLjM3OS0wLjE1NC0wLjQxMy0wLjM1bC0wLjMxMy0yLjIwOWMtMC41MDgtMC4y%0D%0AMTItMC45NzktMC40OTEtMS40MDgtMC44Mg0KCQkJbC0yLjA3NSwwLjgzOGMtMC4xODgsMC4wNzUt%0D%0AMC40MDQsMC0wLjUwOC0wLjE3OUw2Ljk1LDE3LjcyNWMtMC4xMDQtMC4xODQtMC4wNTktMC40MDgs%0D%0AMC4xLTAuNTMzbDEuNzU5LTEuMzc5DQoJCQlDOC43NzUsMTUuNTQ2LDguNzUsMTUuMjc1LDguNzUs%0D%0AMTVjMC0wLjI3NSwwLjAyNS0wLjU0NiwwLjA1OS0wLjgxM0w3LjA1LDEyLjgwOGMtMC4xNTgtMC4x%0D%0AMjktMC4yMDQtMC4zNTQtMC4xLTAuNTMzbDEuNjY3LTIuODg4DQoJCQljMC4xMDQtMC4xNzksMC4z%0D%0AMjEtMC4yNSwwLjUwOC0wLjE3OWwyLjA3NSwwLjgzN2MwLjQyOS0wLjMzMywwLjktMC42MDgsMS40%0D%0AMDgtMC44MjFsMC4zMTMtMi4yMDgNCgkJCWMwLjAzMy0wLjE5NiwwLjIwNC0wLjM1LDAuNDEzLTAu%0D%0AMzVoMy4zMzNjMC4yMDksMCwwLjM4LDAuMTU0LDAuNDE3LDAuMzVsMC4zMTMsMi4yMDhjMC41MDks%0D%0AMC4yMTIsMC45NzksMC40OTIsMS40MDgsMC44MjENCgkJCWwyLjA3NS0wLjgzN2MwLjE4OC0wLjA3%0D%0ANSwwLjQwNCwwLDAuNTA5LDAuMTc5bDEuNjY3LDIuODg4YzAuMTA0LDAuMTg0LDAuMDU5LDAuNDA4%0D%0ALTAuMTAxLDAuNTMzbC0xLjc2MywxLjM3OQ0KCQkJQzIxLjIyNSwxNC40NTQsMjEuMjUsMTQuNzI1%0D%0ALDIxLjI1LDE1eiIvPg0KCTwvZz4NCjwvZz4NCjxnIGlkPSJDYXBhXzIiPg0KCTxwYXRoIGZpbGw9%0D%0AIiNGRkZGRkYiIGQ9Ik0wLDB2MzBoMzBWMEgweiBNMjAuODMzLDE1LjQxN3Y2LjY2NmgtNC4xNjZ2%0D%0ALTVoLTMuMzMzdjVIOS4xNjd2LTYuNjY2aC0yLjVMMTUsNy45MTdsOC4zMzMsNy41SDIwLjgzM3oi%0D%0ALz4NCjwvZz4NCjxnIGlkPSJDYXBhXzMiIGRpc3BsYXk9Im5vbmUiPg0KCTxnIGRpc3BsYXk9Imlu%0D%0AbGluZSI+DQoJCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0xNSw3Yy00LjQxLDAtOCwzLjU5MS04%0D%0ALDhjMCw0LjQxMSwzLjU5LDgsOCw4YzQuNDEsMCw4LTMuNTg5LDgtOEMyMywxMC41OTEsMTkuNDEs%0D%0ANywxNSw3eiBNMjAsMTZoLTR2NGgtMg0KCQkJdi00aC00di0yaDR2LTRoMnY0aDRWMTZ6Ii8+DQoJ%0D%0ACTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0wLDB2MzBoMzBWMEgweiBNMTUsMjVDOS40NzUsMjUs%0D%0ANSwyMC41MjUsNSwxNUM1LDkuNDc1LDkuNDc1LDUsMTUsNWM1LjUyNSwwLDEwLDQuNDc1LDEwLDEw%0D%0ADQoJCQlDMjUsMjAuNTI1LDIwLjUyNSwyNSwxNSwyNXoiLz4NCgk8L2c+DQo8L2c+DQo8L3N2Zz4N%0D%0ACg==" alt="Icono 1" class="menu__iconpc">
+      </a>
+
+      <!-- Icono grande -->
+      <a href="#" class="menupc__item menupc__item--big">
+          <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBB%0D%0AZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9u%0D%0AOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBT%0D%0AVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzEx%0D%0ALmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAv%0D%0Ac3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5%0D%0APSIwcHgiIHdpZHRoPSIzMHB4Ig0KCSBoZWlnaHQ9IjMwcHgiIHZpZXdCb3g9IjAgMCAzMCAzMCIg%0D%0AZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzAgMzAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0K%0D%0APGcgaWQ9IkNhcGFfMSIgZGlzcGxheT0ibm9uZSI+DQoJPGcgZGlzcGxheT0iaW5saW5lIj4NCgkJ%0D%0APGNpcmNsZSBmaWxsPSIjRkZGRkZGIiBjeD0iMTUiIGN5PSIxNSIgcj0iMi45MTciLz4NCgkJPHBh%0D%0AdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTAsMHYzMGgzMFYwSDB6IE0yMS4yNSwxNWMwLDAuMjc1LTAu%0D%0AMDI1LDAuNTQ2LTAuMDU5LDAuODEzbDEuNzU5LDEuMzc5YzAuMTU4LDAuMTMsMC4yMDQsMC4zNTQs%0D%0AMC4xLDAuNTMzDQoJCQlsLTEuNjY2LDIuODg5Yy0wLjEwNCwwLjE3OS0wLjMyMSwwLjI0OS0wLjUw%0D%0AOSwwLjE3OUwxOC44LDE5Ljk1NGMtMC40MjksMC4zMzMtMC44OTksMC42MDgtMS40MDgsMC44Mmwt%0D%0AMC4zMTMsMi4yMDkNCgkJCWMtMC4wMzMsMC4xOTUtMC4yMDQsMC4zNS0wLjQxMywwLjM1aC0zLjMz%0D%0AM2MtMC4yMDgsMC0wLjM3OS0wLjE1NC0wLjQxMy0wLjM1bC0wLjMxMy0yLjIwOWMtMC41MDgtMC4y%0D%0AMTItMC45NzktMC40OTEtMS40MDgtMC44Mg0KCQkJbC0yLjA3NSwwLjgzOGMtMC4xODgsMC4wNzUt%0D%0AMC40MDQsMC0wLjUwOC0wLjE3OUw2Ljk1LDE3LjcyNWMtMC4xMDQtMC4xODQtMC4wNTktMC40MDgs%0D%0AMC4xLTAuNTMzbDEuNzU5LTEuMzc5DQoJCQlDOC43NzUsMTUuNTQ2LDguNzUsMTUuMjc1LDguNzUs%0D%0AMTVjMC0wLjI3NSwwLjAyNS0wLjU0NiwwLjA1OS0wLjgxM0w3LjA1LDEyLjgwOGMtMC4xNTgtMC4x%0D%0AMjktMC4yMDQtMC4zNTQtMC4xLTAuNTMzbDEuNjY3LTIuODg4DQoJCQljMC4xMDQtMC4xNzksMC4z%0D%0AMjEtMC4yNSwwLjUwOC0wLjE3OWwyLjA3NSwwLjgzN2MwLjQyOS0wLjMzMywwLjktMC42MDgsMS40%0D%0AMDgtMC44MjFsMC4zMTMtMi4yMDgNCgkJCWMwLjAzMy0wLjE5NiwwLjIwNC0wLjM1LDAuNDEzLTAu%0D%0AMzVoMy4zMzNjMC4yMDksMCwwLjM4LDAuMTU0LDAuNDE3LDAuMzVsMC4zMTMsMi4yMDhjMC41MDks%0D%0AMC4yMTIsMC45NzksMC40OTIsMS40MDgsMC44MjENCgkJCWwyLjA3NS0wLjgzN2MwLjE4OC0wLjA3%0D%0ANSwwLjQwNCwwLDAuNTA5LDAuMTc5bDEuNjY3LDIuODg4YzAuMTA0LDAuMTg0LDAuMDU5LDAuNDA4%0D%0ALTAuMTAxLDAuNTMzbC0xLjc2MywxLjM3OQ0KCQkJQzIxLjIyNSwxNC40NTQsMjEuMjUsMTQuNzI1%0D%0ALDIxLjI1LDE1eiIvPg0KCTwvZz4NCjwvZz4NCjxnIGlkPSJDYXBhXzIiIGRpc3BsYXk9Im5vbmUi%0D%0APg0KCTxwYXRoIGRpc3BsYXk9ImlubGluZSIgZmlsbD0iI0ZGRkZGRiIgZD0iTTAsMHYzMGgzMFYw%0D%0ASDB6IE0yMC44MzMsMTUuNDE3djYuNjY2aC00LjE2NnYtNWgtMy4zMzN2NUg5LjE2N3YtNi42NjZo%0D%0ALTIuNUwxNSw3LjkxNw0KCQlsOC4zMzMsNy41SDIwLjgzM3oiLz4NCjwvZz4NCjxnIGlkPSJDYXBh%0D%0AXzMiPg0KCTxnPg0KCQk8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMTUuMDgzLDcuMDAxQzEwLjY3%0D%0AMiw2Ljk1Niw3LjA0NSwxMC41MSw3LDE0LjkxOXMzLjUxLDguMDM2LDcuOTE4LDguMDgxDQoJCQlj%0D%0ANC40MSwwLjA0NSw4LjAzNS0zLjUwOSw4LjA4LTcuOTE5QzIzLjA0MywxMC42NzMsMTkuNDkyLDcu%0D%0AMDQ2LDE1LjA4Myw3LjAwMXogTTE4LjUsMTUuN2gtMi44djIuOEgxNC4zdi0yLjhoLTIuOFYxNC4z%0D%0AaDIuOHYtMi44DQoJCQlIMTUuN3YyLjhoMi44VjE1Ljd6Ii8+DQoJCTxwYXRoIGZpbGw9IiNGRkZG%0D%0ARkYiIGQ9Ik0wLDB2MzBoMzBWMEgweiBNMTUsMjVDOS40NzUsMjUsNSwyMC41MjUsNSwxNUM1LDku%0D%0ANDc2LDkuNDc1LDUsMTUsNWM1LjUyNSwwLDEwLDQuNDc2LDEwLDEwDQoJCQlDMjUsMjAuNTI1LDIw%0D%0ALjUyNSwyNSwxNSwyNXoiLz4NCgk8L2c+DQo8L2c+DQo8L3N2Zz4NCg==" alt="Icono 2" class="menu__icon menu__icon--big">
+      </a>
+
+      <!-- Tercer icono -->
+      <a href="/Usuario" class="menupc__item">
+          <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBB%0D%0AZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9u%0D%0AOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBT%0D%0AVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzEx%0D%0ALmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAv%0D%0Ac3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5%0D%0APSIwcHgiIHdpZHRoPSIzMHB4Ig0KCSBoZWlnaHQ9IjMwcHgiIHZpZXdCb3g9IjAgMCAzMCAzMCIg%0D%0AZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzAgMzAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0K%0D%0APGcgaWQ9IkNhcGFfMSI+DQoJPGc+DQoJCTxjaXJjbGUgZmlsbD0iI0ZGRkZGRiIgY3g9IjE1IiBj%0D%0AeT0iMTUiIHI9IjIuOTE3Ii8+DQoJCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0wLDB2MzBoMzBW%0D%0AMEgweiBNMjEuMjUsMTVjMCwwLjI3NS0wLjAyNSwwLjU0Ni0wLjA1OSwwLjgxM2wxLjc1OSwxLjM3%0D%0AOWMwLjE1OCwwLjEzLDAuMjA0LDAuMzU0LDAuMSwwLjUzMw0KCQkJbC0xLjY2NiwyLjg4OWMtMC4x%0D%0AMDQsMC4xNzktMC4zMjEsMC4yNDktMC41MDksMC4xNzlMMTguOCwxOS45NTRjLTAuNDI5LDAuMzMz%0D%0ALTAuODk5LDAuNjA4LTEuNDA4LDAuODJsLTAuMzEzLDIuMjA5DQoJCQljLTAuMDMzLDAuMTk1LTAu%0D%0AMjA0LDAuMzUtMC40MTMsMC4zNWgtMy4zMzNjLTAuMjA4LDAtMC4zNzktMC4xNTQtMC40MTMtMC4z%0D%0ANWwtMC4zMTMtMi4yMDljLTAuNTA4LTAuMjEyLTAuOTc5LTAuNDkxLTEuNDA4LTAuODINCgkJCWwt%0D%0AMi4wNzUsMC44MzhjLTAuMTg4LDAuMDc1LTAuNDA0LDAtMC41MDgtMC4xNzlMNi45NSwxNy43MjVj%0D%0ALTAuMTA0LTAuMTg0LTAuMDU5LTAuNDA4LDAuMS0wLjUzM2wxLjc1OS0xLjM3OQ0KCQkJQzguNzc1%0D%0ALDE1LjU0Niw4Ljc1LDE1LjI3NSw4Ljc1LDE1YzAtMC4yNzUsMC4wMjUtMC41NDYsMC4wNTktMC44%0D%0AMTNMNy4wNSwxMi44MDhjLTAuMTU4LTAuMTI5LTAuMjA0LTAuMzU0LTAuMS0wLjUzM2wxLjY2Ny0y%0D%0ALjg4OA0KCQkJYzAuMTA0LTAuMTc5LDAuMzIxLTAuMjUsMC41MDgtMC4xNzlsMi4wNzUsMC44Mzdj%0D%0AMC40MjktMC4zMzMsMC45LTAuNjA4LDEuNDA4LTAuODIxbDAuMzEzLTIuMjA4DQoJCQljMC4wMzMt%0D%0AMC4xOTYsMC4yMDQtMC4zNSwwLjQxMy0wLjM1aDMuMzMzYzAuMjA5LDAsMC4zOCwwLjE1NCwwLjQx%0D%0ANywwLjM1bDAuMzEzLDIuMjA4YzAuNTA5LDAuMjEyLDAuOTc5LDAuNDkyLDEuNDA4LDAuODIxDQoJ%0D%0ACQlsMi4wNzUtMC44MzdjMC4xODgtMC4wNzUsMC40MDQsMCwwLjUwOSwwLjE3OWwxLjY2NywyLjg4%0D%0AOGMwLjEwNCwwLjE4NCwwLjA1OSwwLjQwOC0wLjEwMSwwLjUzM2wtMS43NjMsMS4zNzkNCgkJCUMy%0D%0AMS4yMjUsMTQuNDU0LDIxLjI1LDE0LjcyNSwyMS4yNSwxNXoiLz4NCgk8L2c+DQo8L2c+DQo8ZyBp%0D%0AZD0iQ2FwYV8yIiBkaXNwbGF5PSJub25lIj4NCgk8cGF0aCBkaXNwbGF5PSJpbmxpbmUiIGZpbGw9%0D%0AIiNGRkZGRkYiIGQ9Ik0wLDB2MzBoMzBWMEgweiBNMjAuODMzLDE1LjQxN3Y2LjY2NmgtNC4xNjZ2%0D%0ALTVoLTMuMzMzdjVIOS4xNjd2LTYuNjY2aC0yLjVMMTUsNy45MTcNCgkJbDguMzMzLDcuNUgyMC44%0D%0AMzN6Ii8+DQo8L2c+DQo8ZyBpZD0iQ2FwYV8zIiBkaXNwbGF5PSJub25lIj4NCgk8ZyBkaXNwbGF5%0D%0APSJpbmxpbmUiPg0KCQk8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMTUsN2MtNC40MSwwLTgsMy41%0D%0AOTEtOCw4YzAsNC40MTEsMy41OSw4LDgsOGM0LjQxLDAsOC0zLjU4OSw4LThDMjMsMTAuNTkxLDE5%0D%0ALjQxLDcsMTUsN3ogTTIwLDE2aC00djRoLTINCgkJCXYtNGgtNHYtMmg0di00aDJ2NGg0VjE2eiIv%0D%0APg0KCQk8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMCwwdjMwaDMwVjBIMHogTTE1LDI1QzkuNDc1%0D%0ALDI1LDUsMjAuNTI1LDUsMTVDNSw5LjQ3NSw5LjQ3NSw1LDE1LDVjNS41MjUsMCwxMCw0LjQ3NSwx%0D%0AMCwxMA0KCQkJQzI1LDIwLjUyNSwyMC41MjUsMjUsMTUsMjV6Ii8+DQoJPC9nPg0KPC9nPg0KPC9z%0D%0Admc+DQo=" alt="Icono 3" class="menu__iconpc">
+      </a>
+
+
+  </nav>
+</div>
+
+<li class="list-inline-item"><a href="/Politicas">Políticas de privacidad</a></li>
+
+
+<nav class="menu">
+	<a href="index" class="menu__bg">
+		<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBB%0D%0AZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9u%0D%0AOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBT%0D%0AVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzEx%0D%0ALmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAv%0D%0Ac3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5%0D%0APSIwcHgiIHdpZHRoPSIzMHB4Ig0KCSBoZWlnaHQ9IjMwcHgiIHZpZXdCb3g9IjAgMCAzMCAzMCIg%0D%0AZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzAgMzAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0K%0D%0APGcgaWQ9IkNhcGFfMSIgZGlzcGxheT0ibm9uZSI+DQoJPGcgZGlzcGxheT0iaW5saW5lIj4NCgkJ%0D%0APGNpcmNsZSBmaWxsPSIjRkZGRkZGIiBjeD0iMTUiIGN5PSIxNSIgcj0iMi45MTciLz4NCgkJPHBh%0D%0AdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTAsMHYzMGgzMFYwSDB6IE0yMS4yNSwxNWMwLDAuMjc1LTAu%0D%0AMDI1LDAuNTQ2LTAuMDU5LDAuODEzbDEuNzU5LDEuMzc5YzAuMTU4LDAuMTMsMC4yMDQsMC4zNTQs%0D%0AMC4xLDAuNTMzDQoJCQlsLTEuNjY2LDIuODg5Yy0wLjEwNCwwLjE3OS0wLjMyMSwwLjI0OS0wLjUw%0D%0AOSwwLjE3OUwxOC44LDE5Ljk1NGMtMC40MjksMC4zMzMtMC44OTksMC42MDgtMS40MDgsMC44Mmwt%0D%0AMC4zMTMsMi4yMDkNCgkJCWMtMC4wMzMsMC4xOTUtMC4yMDQsMC4zNS0wLjQxMywwLjM1aC0zLjMz%0D%0AM2MtMC4yMDgsMC0wLjM3OS0wLjE1NC0wLjQxMy0wLjM1bC0wLjMxMy0yLjIwOWMtMC41MDgtMC4y%0D%0AMTItMC45NzktMC40OTEtMS40MDgtMC44Mg0KCQkJbC0yLjA3NSwwLjgzOGMtMC4xODgsMC4wNzUt%0D%0AMC40MDQsMC0wLjUwOC0wLjE3OUw2Ljk1LDE3LjcyNWMtMC4xMDQtMC4xODQtMC4wNTktMC40MDgs%0D%0AMC4xLTAuNTMzbDEuNzU5LTEuMzc5DQoJCQlDOC43NzUsMTUuNTQ2LDguNzUsMTUuMjc1LDguNzUs%0D%0AMTVjMC0wLjI3NSwwLjAyNS0wLjU0NiwwLjA1OS0wLjgxM0w3LjA1LDEyLjgwOGMtMC4xNTgtMC4x%0D%0AMjktMC4yMDQtMC4zNTQtMC4xLTAuNTMzbDEuNjY3LTIuODg4DQoJCQljMC4xMDQtMC4xNzksMC4z%0D%0AMjEtMC4yNSwwLjUwOC0wLjE3OWwyLjA3NSwwLjgzN2MwLjQyOS0wLjMzMywwLjktMC42MDgsMS40%0D%0AMDgtMC44MjFsMC4zMTMtMi4yMDgNCgkJCWMwLjAzMy0wLjE5NiwwLjIwNC0wLjM1LDAuNDEzLTAu%0D%0AMzVoMy4zMzNjMC4yMDksMCwwLjM4LDAuMTU0LDAuNDE3LDAuMzVsMC4zMTMsMi4yMDhjMC41MDks%0D%0AMC4yMTIsMC45NzksMC40OTIsMS40MDgsMC44MjENCgkJCWwyLjA3NS0wLjgzN2MwLjE4OC0wLjA3%0D%0ANSwwLjQwNCwwLDAuNTA5LDAuMTc5bDEuNjY3LDIuODg4YzAuMTA0LDAuMTg0LDAuMDU5LDAuNDA4%0D%0ALTAuMTAxLDAuNTMzbC0xLjc2MywxLjM3OQ0KCQkJQzIxLjIyNSwxNC40NTQsMjEuMjUsMTQuNzI1%0D%0ALDIxLjI1LDE1eiIvPg0KCTwvZz4NCjwvZz4NCjxnIGlkPSJDYXBhXzIiPg0KCTxwYXRoIGZpbGw9%0D%0AIiNGRkZGRkYiIGQ9Ik0wLDB2MzBoMzBWMEgweiBNMjAuODMzLDE1LjQxN3Y2LjY2NmgtNC4xNjZ2%0D%0ALTVoLTMuMzMzdjVIOS4xNjd2LTYuNjY2aC0yLjVMMTUsNy45MTdsOC4zMzMsNy41SDIwLjgzM3oi%0D%0ALz4NCjwvZz4NCjxnIGlkPSJDYXBhXzMiIGRpc3BsYXk9Im5vbmUiPg0KCTxnIGRpc3BsYXk9Imlu%0D%0AbGluZSI+DQoJCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0xNSw3Yy00LjQxLDAtOCwzLjU5MS04%0D%0ALDhjMCw0LjQxMSwzLjU5LDgsOCw4YzQuNDEsMCw4LTMuNTg5LDgtOEMyMywxMC41OTEsMTkuNDEs%0D%0ANywxNSw3eiBNMjAsMTZoLTR2NGgtMg0KCQkJdi00aC00di0yaDR2LTRoMnY0aDRWMTZ6Ii8+DQoJ%0D%0ACTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0wLDB2MzBoMzBWMEgweiBNMTUsMjVDOS40NzUsMjUs%0D%0ANSwyMC41MjUsNSwxNUM1LDkuNDc1LDkuNDc1LDUsMTUsNWM1LjUyNSwwLDEwLDQuNDc1LDEwLDEw%0D%0ADQoJCQlDMjUsMjAuNTI1LDIwLjUyNSwyNSwxNSwyNXoiLz4NCgk8L2c+DQo8L2c+DQo8L3N2Zz4N%0D%0ACg==" alt="Icon" class="menu__icon">
+  </a>
+
+	<div id="toggle-chat-btn_responsive" class="menu__bg big">
+		<img src="/SkillBotLogo" alt="Open Chat" class="menu__icon big">
+  </div>
+
+	<a href="Usuario" class="menu__bg">
+		<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBB%0D%0AZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9u%0D%0AOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBT%0D%0AVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzEx%0D%0ALmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAv%0D%0Ac3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5%0D%0APSIwcHgiIHdpZHRoPSIzMHB4Ig0KCSBoZWlnaHQ9IjMwcHgiIHZpZXdCb3g9IjAgMCAzMCAzMCIg%0D%0AZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzAgMzAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0K%0D%0APGcgaWQ9IkNhcGFfMSI+DQoJPGc+DQoJCTxjaXJjbGUgZmlsbD0iI0ZGRkZGRiIgY3g9IjE1IiBj%0D%0AeT0iMTUiIHI9IjIuOTE3Ii8+DQoJCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0wLDB2MzBoMzBW%0D%0AMEgweiBNMjEuMjUsMTVjMCwwLjI3NS0wLjAyNSwwLjU0Ni0wLjA1OSwwLjgxM2wxLjc1OSwxLjM3%0D%0AOWMwLjE1OCwwLjEzLDAuMjA0LDAuMzU0LDAuMSwwLjUzMw0KCQkJbC0xLjY2NiwyLjg4OWMtMC4x%0D%0AMDQsMC4xNzktMC4zMjEsMC4yNDktMC41MDksMC4xNzlMMTguOCwxOS45NTRjLTAuNDI5LDAuMzMz%0D%0ALTAuODk5LDAuNjA4LTEuNDA4LDAuODJsLTAuMzEzLDIuMjA5DQoJCQljLTAuMDMzLDAuMTk1LTAu%0D%0AMjA0LDAuMzUtMC40MTMsMC4zNWgtMy4zMzNjLTAuMjA4LDAtMC4zNzktMC4xNTQtMC40MTMtMC4z%0D%0ANWwtMC4zMTMtMi4yMDljLTAuNTA4LTAuMjEyLTAuOTc5LTAuNDkxLTEuNDA4LTAuODINCgkJCWwt%0D%0AMi4wNzUsMC44MzhjLTAuMTg4LDAuMDc1LTAuNDA0LDAtMC41MDgtMC4xNzlMNi45NSwxNy43MjVj%0D%0ALTAuMTA0LTAuMTg0LTAuMDU5LTAuNDA4LDAuMS0wLjUzM2wxLjc1OS0xLjM3OQ0KCQkJQzguNzc1%0D%0ALDE1LjU0Niw4Ljc1LDE1LjI3NSw4Ljc1LDE1YzAtMC4yNzUsMC4wMjUtMC41NDYsMC4wNTktMC44%0D%0AMTNMNy4wNSwxMi44MDhjLTAuMTU4LTAuMTI5LTAuMjA0LTAuMzU0LTAuMS0wLjUzM2wxLjY2Ny0y%0D%0ALjg4OA0KCQkJYzAuMTA0LTAuMTc5LDAuMzIxLTAuMjUsMC41MDgtMC4xNzlsMi4wNzUsMC44Mzdj%0D%0AMC40MjktMC4zMzMsMC45LTAuNjA4LDEuNDA4LTAuODIxbDAuMzEzLTIuMjA4DQoJCQljMC4wMzMt%0D%0AMC4xOTYsMC4yMDQtMC4zNSwwLjQxMy0wLjM1aDMuMzMzYzAuMjA5LDAsMC4zOCwwLjE1NCwwLjQx%0D%0ANywwLjM1bDAuMzEzLDIuMjA4YzAuNTA5LDAuMjEyLDAuOTc5LDAuNDkyLDEuNDA4LDAuODIxDQoJ%0D%0ACQlsMi4wNzUtMC44MzdjMC4xODgtMC4wNzUsMC40MDQsMCwwLjUwOSwwLjE3OWwxLjY2NywyLjg4%0D%0AOGMwLjEwNCwwLjE4NCwwLjA1OSwwLjQwOC0wLjEwMSwwLjUzM2wtMS43NjMsMS4zNzkNCgkJCUMy%0D%0AMS4yMjUsMTQuNDU0LDIxLjI1LDE0LjcyNSwyMS4yNSwxNXoiLz4NCgk8L2c+DQo8L2c+DQo8ZyBp%0D%0AZD0iQ2FwYV8yIiBkaXNwbGF5PSJub25lIj4NCgk8cGF0aCBkaXNwbGF5PSJpbmxpbmUiIGZpbGw9%0D%0AIiNGRkZGRkYiIGQ9Ik0wLDB2MzBoMzBWMEgweiBNMjAuODMzLDE1LjQxN3Y2LjY2NmgtNC4xNjZ2%0D%0ALTVoLTMuMzMzdjVIOS4xNjd2LTYuNjY2aC0yLjVMMTUsNy45MTcNCgkJbDguMzMzLDcuNUgyMC44%0D%0AMzN6Ii8+DQo8L2c+DQo8ZyBpZD0iQ2FwYV8zIiBkaXNwbGF5PSJub25lIj4NCgk8ZyBkaXNwbGF5%0D%0APSJpbmxpbmUiPg0KCQk8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMTUsN2MtNC40MSwwLTgsMy41%0D%0AOTEtOCw4YzAsNC40MTEsMy41OSw4LDgsOGM0LjQxLDAsOC0zLjU4OSw4LThDMjMsMTAuNTkxLDE5%0D%0ALjQxLDcsMTUsN3ogTTIwLDE2aC00djRoLTINCgkJCXYtNGgtNHYtMmg0di00aDJ2NGg0VjE2eiIv%0D%0APg0KCQk8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMCwwdjMwaDMwVjBIMHogTTE1LDI1QzkuNDc1%0D%0ALDI1LDUsMjAuNTI1LDUsMTVDNSw5LjQ3NSw5LjQ3NSw1LDE1LDVjNS41MjUsMCwxMCw0LjQ3NSwx%0D%0AMCwxMA0KCQkJQzI1LDIwLjUyNSwyMC41MjUsMjUsMTUsMjV6Ii8+DQoJPC9nPg0KPC9nPg0KPC9z%0D%0Admc+DQo=" alt="Icon" class="menu__icon">
+  </a>
+
+</nav>
+
+<body onload="cargarTabla()" class="example">
+  <div id="loadingOverlay">
+    <div class="text-center">
+      <div class="spinner-border text-danger" role="status" style="width: 5rem;
+    height: 5rem; margin-top: 200%">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+  
+  <div id="contenido" class="hidden">
+  <nav class="main-menu">
+    <span id="logo"> <img src="/Logo2" width="58px"
+      height="60px" alt=""> 
+ </span>
+
+ <div class="scrollbar" id="style-1">
+       
+ <ul>
+   
+  
+  <div>
+    <a class="logo" href="/Logo">
+    </a> 
+  </div> 
+<div class="settings"></div>
+<div class="scrollbar" id="style-1">
+      
+
+<li>                                   
+<a href="/index">
+<i class="fa fa-home fa-lg"></i>
+<span class="nav-text">Home</span>
+</a>
+</li>   
+     
+<li>                                 
+  <a href="/Usuario">
+    <i class="fa fa-user fa-lg"></i>
+    <span class="nav-text">Perfil</span>
+    </a>
+    </li>    
+ 
+     
+ <ul class="logout">
+  <li>
+                     <a href="/Blog">
+                           <i class="fa fa-lightbulb-o fa-lg"></i>
+                          <span class="nav-text">
+                              Blog 
+                          </span>
+                          
+                      </a>
+  </li>  
+  </ul>
+ 
+  
+  <li>                                 
+    <a href="chat">
+    <i class="fa fa-envelope-o fa-lg"></i>
+    <span class="nav-text">Chats</span>
+    </a>
+    </li>   
+      
+    <li >
+      <a href="MainPublicaciones">
+      <i class="fa fa-search"></i>
+      <span class="nav-text">Explorar</span>
+      </a>
+      </li>
+     
+        
+   
+</li>
+<li class="darkerlishadow">
+<a href="noticias">
+<i class="fa fa-clock-o fa-lg"></i>
+<span class="nav-text">Noticias</span>
+</a>
+</li>
+ 
+         
+<li class="darkerli">
+ <a href="guia">
+ <i class="fa fa-search"></i>
+ <span class="nav-text">Guía de uso</span>
+ </a>
+ </li>
+
+<li class="darkerli">
+<a href="Historia">
+<i class="fa fa-desktop fa-lg"></i>
+<span class="nav-text">Historia del proyecto</span>
+</a>
+</li>
+  
+
+<li class="darkerli">
+<a href="intercambios">
+<i class="fa fa-refresh"></i>
+ <span class="nav-text">Acerca de los intercambios</span>
+</a>
+</li>
+<li class="darkerli">
+  <a href="help  ">
+  <i class="fa fa-question-circle fa-lg"></i>
+   <span class="nav-text">Ayuda</span>
+  </a>
+  </li>  
+
+
+  
+         </nav>
+<section>
+    <div class="container py-5">
+  
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img src="/Perfil" alt="Imagen de perfil" id="perfilImagen"
+                class="rounded-circle img-fluid" style="height: 150px; width: 150px;">
+              <h5 class="my-3" id="nombreUsuario"></h5>
+              <button type="button" class="btn btn-primary" onclick="showForm()"><i class="fa-sharp fa-solid fa-image"></i></button>
+              <button type="button" class="btn btn-outline-primary ms-1" id="logoutButton">Cerrar sesión</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Nombre completo</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0" id="nombreUsuario2"> </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0" id="emailUsuario"> </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0"></p>Género</p>
+                </div>
+                <div class="col-sm-3">
+                  <p class="text-muted mb-0" id="generoUsuario"></p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Fecha de nacimiento</p>
+                </div>
+                <div class="col-sm-3">
+                  <p class="text-muted mb-0" id="fechaUsuario"> </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Número de teléfono</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">8965-2134</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </section>
+  <h1 class="titulo">Tus publicaciones</h1>
+  <div class="fondoCard">	
+    <div class="card1-container" id="cuaerpodelatabladeoperaciones">     
+    </div>
+</div>
+<div id="toggle-chat-btn" class="chat-toggle-button">
+  <img src="/SkillBotLogo" alt="Open Chat">
+</div>
+
+
+<div class="content chat-container">  
+  <div class="close-chat-btn">X</div>
+<div class="content">
+<div id="chat-contents">
+</div>
+<div class="chat-box">
+  <input type="text" id="chat-message-value" autocomplete="off" placeholder="Type a message">
+  <button id="submit-chat">
+    <svg width="15" height="20" viewBox="0 0 30 21">
+      <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+    </svg>
+  </button>
+</div>
+</div>
+</div>
+<div class="overlay" id="overlay">
+  <div class="formF">
+    <form>
+      <span class="close" onclick="hideForm()">x</span>
+      <h1 class="title2">Actualiza tu imagen de perfil</h1>
+
+    <div class="row">
+    <div class="small-12 medium-2 large-2 columns">
+    <div class="circle">
+    <img class="profile-pic" src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
+
+    </div>
+    <div class="p-image">
+    <i class="fa fa-camera upload-button"></i>
+    <input class="file-upload" id="inputFotoPerfil" type="file" accept="image/*"/>
+    </div>
+    </div>
+    <button class="boton"  type="button" id="btnActualizarImagen">Actualizar imagen</button>
+    </div>
+   
+   
+    </div>  
+    </div>
+</div>
+</body>
+<footer class="footer-basic">
+              <div class="social">
+                  <a href="#"><i class="icon ion-social-instagram"></i></a>
+                  <a href="#"><i class="icon ion-social-facebook"></i></a>      
+                  <a href="#"><i class="icon ion-ios-telephone"></i></a>
+                  <a href="#"><i class="icon ion-ios-email"></i></a>
+              </div>
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href="/Blog">Servicios</a></li>
+                  <li class="list-inline-item"><a href="/Acerca_de">Acerca de</a></li>
+                  <li class="list-inline-item"><a href="/Terminos">Términos y condiciones</a></li>
+                  <li class="list-inline-item"><a href="/Politicas">Políticas de privacidad</a></li>
+              </ul>
+              <p class="copyright">BrigdeSkill © 2023</p>
+              <link rel="stylesheet" href="footer.css">
+          </footer></div>
+          <script type:"text-javascript">
+
+let imagenbase64 = "";
+
+$("#inputFotoPerfil").change(function() {
+    readURL(this);
+});
+
+$("#btnActualizarImagen").click(function() {
+    if (imagenbase64) {
+      const tics_instanciada = new personaP();
+      tics_instanciada.enviarImagen(imagenbase64).then((message) => {
+          console.log("Éxito:", message);
+          
+          // Recarga la página después de un cambio exitoso
+          location.reload();
+
+      }).catch((error) => {
+          console.error("Error:", error);
+      });
+    } else {
+        console.error("No se ha seleccionado ninguna imagen.");
+    }
+});
+
+
+
+function readURL(input){
+    if (input.files && input.files[0]){
+        let reader = new FileReader();
+
+        reader.onload = function(e){
+            imagenbase64 = e.target.result;
+            console.log(imagenbase64)
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+
+    let nombreUsuario = "";
+
+    function obtenerDatosUsuario() {
+    const tics_instanciada = new personaP();
+    tics_instanciada.obtenerUsuario().then(function(response) {
+      nombreUsuario = response.NOMBRE;
+      apellidoUsuario = response.APELLIDO;
+      emailUsuario = response.EMAIL;
+      fechaUsuario = response.FECHAN;
+      generoUsuario = response.GENERO;
+
+      // Actualizar el elemento HTML con el nombre del usuario
+        const nombreElemento2 = document.getElementById('nombreUsuario2');
+        nombreElemento2.textContent = nombreUsuario +" "+ apellidoUsuario;
+
+        const nombreElemento = document.getElementById('nombreUsuario');
+        nombreElemento.textContent = nombreUsuario;
+
+        const nacimientoElemento = document.getElementById('fechaUsuario');
+        nacimientoElemento.textContent = fechaUsuario;
+
+        const generoElemento = document.getElementById('generoUsuario');
+        generoElemento.textContent = generoUsuario;
+
+        const emailElemento = document.getElementById('emailUsuario');
+        emailElemento.textContent = emailUsuario;
+
+      // Obtener el elemento de la imagen de perfil
+      const perfilImagen = document.getElementById('perfilImagen');
+      // Actualizar la URL de la imagen de perfil
+      perfilImagen.src = response.FOTO;
+    }).catch(function(error) {
+      console.error('Error al obtener los datos del usuario:', error);
+    });
+  }
+    
+  function Guardar() {
+  var FECHAACTUAL = new Date(); // Obtener la fecha y hora actual
+
+  var tics_instanciada = new publicacionesdb(
+    0,
+    nombreUsuario,
+    document.getElementById("INTERES").value,
+    document.getElementById("SABE").value,
+    document.getElementById("NUMERO").value,
+    imagenbase64,
+    FECHAACTUAL // Agregar la fecha actual a la publicación
+  );
+
+  tics_instanciada.Guardar()
+    .then(function (response) {
+      console.log("Success!", response);
+      alert("Guardado con éxito");
+      cargarTabla();
+    })
+    .catch(function (error) {
+      console.error("Failed", error);
+      alert("Error " + error);
+    });
+  }
+
+  function Eliminar(id) {
+  const tics_instanciada = new publicacionesdb();
+  tics_instanciada._id = id;
+  tics_instanciada.Eliminar()
+    .then(function (response) {
+      console.log("Success!", response);
+      swal({
+                      icon: 'success',
+                      text: 'Eliminado con éxito'
+                    });
+    
+      cargarTabla();
+    })
+    .catch(function (error) {
+      console.error("Failed", error);
+      swal({
+                      icon: 'error',
+                      text: 'Error al eliminar'
+                    });
+      
+
+    });
+}
+
+
+
+  function cargarTabla() {
+  obtenerDatosUsuario();
+  var overlay = document.getElementById("loadingOverlay");
+    var contenido = document.getElementById("contenido");
+  var tics_instanciada = new publicacionesdb(); 
+  tics_instanciada.ListarPorID()
+    .then(function (response) {
+      // Ordenar las publicaciones en orden inverso según la fecha de guardado
+      response.sort(function (a, b) {
+        return new Date(b.FECHAACTUAL) - new Date(a.FECHAACTUAL);
+      });
+
+      var cardContent = ""; // Variable para almacenar el contenido del card
+
+      // Iterar sobre las últimas publicaciones
+      for (var elemento of response) {
+  cardContent +=
+    '<article class="card1">' +
+    '<img class="card1__background" src="' +
+    elemento.FOTO +
+    '" alt="" width="1920" height="2193"/>' +
+    '<div class="card1__content | flow">' +
+    '<div class="card1__content--container | flow">' +
+    '<h2 class="card1__title">' +
+    elemento.NOMBRE +
+    '</h2>' +
+    '<p class="card1__description">' +
+    "Interes: " +
+    elemento.INTERES +
+    "<br>" +
+    "Sabe: " +
+    elemento.SABE +
+    '</p>' +
+    '</div>' +
+    '<div class="button-container">' +
+    '<button class="card1__button">' +
+    "+506 " +
+    elemento.NUMERO +
+    '</button>' +
+    '<button class="card1__button" onclick="Eliminar(\'' + elemento._id + '\')"><i class="fa-solid fa-trash"\></i></button>' +
+    '</div>' +
+    '</div>' +
+    '</article>';
+}
+
+      // Agregar el contenido del card al elemento contenedor
+      document.getElementById(
+        "cuaerpodelatabladeoperaciones"
+      ).innerHTML = cardContent;
+      overlay.style.display = "none";
+      contenido.classList.remove("hidden"); 
+    })
+    .catch(function (error) {
+      console.error("Failed", error);
+      alert("Error " + error);
+    });
+}
+
+const logoutButton = document.getElementById('logoutButton');
+
+logoutButton.addEventListener('click', function() {
+
+  const tics_instanciada = new personaP();
+  tics_instanciada.Logout()
+  window.location.href = '/Login';
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function showForm() {
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'flex';
+    setTimeout(() => {
+        overlay.style.opacity = '1';
+    }, 50);
+
+    // Desactiva el desplazamiento en la página principal
+    document.body.style.overflow = 'hidden';
+}
+
+        function hideForm() {
+            const overlay = document.getElementById('overlay');
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 500);
+
+
+            document.querySelector('.overlay').style.display = 'none';
+  
+  // Reactiva el desplazamiento en la página principal
+  document.body.style.overflow = 'auto';
+        }
+
+
+
+$(document).ready(function() {
+
+    
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.profile-pic').attr('src', e.target.result);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+
+    $(".file-upload").on('change', function(){
+        readURL(this);
+    });
+    
+    $(".upload-button").on('click', function() {
+       $(".file-upload").click();
+    });
+});
+
+
+          </script>
+
+</html>
+
+
+
+
+
+
+
+<style>
+
+.overlay {
+  display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(87, 40, 126, 0.5);
+
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+}
+
+.formF {
+    z-index: 9999;
+    box-shadow: 0 5px 10px 2PX rgba(71, 3, 6, 0.7);
+    background: #fff;
+    text-align: center;
+    padding: 20px 25px;
+    border-radius: 10px;
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+}
+
+.formF .close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.circle {
+  position: relative;
+    border-radius: 100% !important;
+    overflow: hidden;
+    width: 128px;
+    height: 128px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    margin: 20px auto;
+}
+
+.profile-pic {
+    width: 100%;
+    height: auto;
+}
+
+.p-image {
+    margin-left: 200px;
+    text-align: center;
+    margin-top: -35px;
+    color: #666;
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+
+}
+
+.upload-button {
+    font-size: 1.4em;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.upload-button:hover {
+    color: #999;
+}
+
+.boton {
+    background-color: #57287E;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+    background-color: #4A2165;
+}
+
+.file-upload {
+    position: absolute;
+    bottom: 8px;  /* Posición de inicio del ícono desde abajo */
+    right: 8px;   /* Posición de inicio del ícono desde la derecha */
+    opacity: 0;
+    cursor: pointer;
+    height: 40px; /* Puedes ajustar estos valores según el tamaño real del ícono de la cámara */
+    width: 40px;  /* Puedes ajustar estos valores según el tamaño real del ícono de la cámara */
+    z-index: 2;   /* Asegura que el input esté encima del ícono */
+}
+
+
+</style>
